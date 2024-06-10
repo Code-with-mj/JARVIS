@@ -1,7 +1,8 @@
 import pyttsx3 
 import datetime
 import speech_recognition as sr
-
+import wikipedia
+import webbrowser 
 
 engine = pyttsx3.init()
 
@@ -65,6 +66,20 @@ if __name__ =="__main__":
             time()
         elif 'date' in query:
             date()
+        elif 'wikipedia' in query:
+            speak("Searching....")
+            query = query.replace("wikipedia", "")
+            #result  = wikipedia.search(query)
+            result = wikipedia.summary(query, sentences=2)
+            print(result)
+            speak(result)
+        
+        elif 'open youtube' in query:
+            webbrowser.open("youtube.com")
+        
+        
+
+        
         elif 'offline' in query:
             quit()
           
